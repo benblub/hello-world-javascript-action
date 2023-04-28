@@ -14,7 +14,9 @@ try {
     const slack = new slackClient.WebClient(token);
     slack.chat.postMessage({
         channel: channels,
-        text: `*${message}*`
+        text: `*${message}*\n
+            ${github.context.payload.pulls_url}
+        `
     })
 } catch (error) {
     core.setFailed(error.message);
