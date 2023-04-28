@@ -6,6 +6,7 @@ try {
     const token = core.getInput('token')
     const channels = core.getInput('channels')
     let number = core.getInput('number')
+    console.log(number);
     number = number.slice(9);
     console.log(number);
 
