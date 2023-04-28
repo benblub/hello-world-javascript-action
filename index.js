@@ -42,7 +42,7 @@ From: ${github.context.payload.pusher.name}\n`,
                 screenshots.map(async screenshot => {
                     core.debug(`Uploading ${screenshot}`)
 
-                    await slack.files.upload({
+                    await slack.files.uploadV2({
                         filename: screenshot,
                         file: createReadStream(`${workdir}/${screenshot}`),
                         thread_ts: threadID,
@@ -61,7 +61,7 @@ From: ${github.context.payload.pusher.name}\n`,
                 videos.map(async video => {
                     core.debug(`Uploading ${video}`)
 
-                    await slack.files.upload({
+                    await slack.files.uploadV2({
                         filename: video,
                         file: createReadStream(`${workdir}/${video}`),
                         thread_ts: threadID,
