@@ -26,9 +26,7 @@ async function run() {
 
         core.debug('Sending initial slack message')
         const result = await slack.chat.postMessage({
-            text: `
-PR: *${message}*\n
-From: ${github.context.payload.pusher.name}\n`,
+            text: 'PR: *${message}*',
             channel: channels
         })
 
