@@ -7,7 +7,7 @@ try {
     const channels = core.getInput('channels')
     let number = core.getInput('number')
     number = number.slice(9);
-    console.log(github.context);
+    console.log(number);
 
     let message = `${github.context.payload.ref}`;
     message = message.slice(11);
