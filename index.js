@@ -7,6 +7,7 @@ try {
     const channels = core.getInput('channels')
     console.log(channels);
     console.log(github.context.payload);
+    console.log(github);
 
     let message = `${github.context.payload.ref}`;
     message = message.slice(11);
@@ -15,7 +16,7 @@ try {
     slack.chat.postMessage({
         channel: channels,
         text: `*${message}*\n
-            https://github.com/mmz-srf/nora/pull/${github.context.payload.pull_request.number}
+            https://github.com/mmz-srf/nora/pull/
         `
     })
 } catch (error) {
