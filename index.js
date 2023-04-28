@@ -15,8 +15,9 @@ try {
     const slack = new slackClient.WebClient(token);
     slack.chat.postMessage({
         channel: channels,
-        text: `*${message}*\n
-            https://github.com/mmz-srf/nora/pull/
+        text: `PR: *${message}*\n
+        From: ${github.context.payload.pusher.name}\n
+        https://github.com/mmz-srf/nora/pull/
         `
     })
 } catch (error) {
