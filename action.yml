@@ -7,6 +7,9 @@ inputs:
   channels:
     description: 'Slack channels'
     required: true
+  message:
+    description: 'PR Number'
+    required: true
 runs:
   using: 'node16'
   main: 'index.js'
