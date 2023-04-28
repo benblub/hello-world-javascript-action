@@ -1,13 +1,12 @@
-name: 'Hello world'
-description: 'Greet someone with Hello world'
+name: 'Hello world Slack'
+description: 'Slack msg'
 inputs:
-  who-to-greet:
-    description: 'Who to greet'
+  token:
+    description: 'Slack token'
     required: true
-    default: 'World'
-outputs:
-  time:
-    description: 'The time we greeted you'
+  channels:
+    description: 'Slack channels'
+    required: true
 runs:
   using: 'node16'
   main: 'index.js'

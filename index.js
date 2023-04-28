@@ -3,14 +3,17 @@ const github = require('@actions/github');
 const slackClient = require('@slack/web-api');
 
 try {
-    // `who-to-greet` input defined in action metadata file
-    const nameToGreet = core.getInput('who-to-greet');
-    console.log(`Hello ${nameToGreet}!`);
-    const time = (new Date()).toTimeString();
-    core.setOutput("time", time);
-    // Get the JSON webhook payload for the event that triggered the workflow
-    const payload = JSON.stringify(github.context.payload, undefined, 2)
+    const token = core.getInput('token')
+    const channels = core.getInput('channels')
+    console.log(channels);
     console.log(`The event payload ref: ${github.context.payload.ref}`);
+
+
+    const slack = new slackClient.WebClient(token);
+    slack.chat.postMessage({
+        channel: channels,
+        text: `The event payload ref: ${github.context.payload.ref}`
+    })
 } catch (error) {
     core.setFailed(error.message);
 }
