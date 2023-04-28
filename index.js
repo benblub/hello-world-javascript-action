@@ -8,11 +8,13 @@ try {
     console.log(channels);
     console.log(`The event payload ref: ${github.context.payload.ref}`);
 
+    let message = `${github.context.payload.ref}`;
+    message.slice(11);
 
     const slack = new slackClient.WebClient(token);
     slack.chat.postMessage({
         channel: channels,
-        text: `The event payload ref: ${github.context.payload.ref}`
+        text: `### ${message}`
     })
 } catch (error) {
     core.setFailed(error.message);
