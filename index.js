@@ -77,7 +77,6 @@ async function run() {
             channel: channels,
             text: `
     PR: *${message}*\n
-    From: ${github.context.payload.pusher.name}\n
             `
         })
     } catch (error) {
