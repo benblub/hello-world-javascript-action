@@ -6,7 +6,7 @@ try {
     const token = core.getInput('token')
     const channels = core.getInput('channels')
     console.log(channels);
-    console.log(`The event payload ref: ${github.context.payload.ref}`);
+    console.log(github.context.payload);
 
     let message = `${github.context.payload.ref}`;
     message = message.slice(11);
