@@ -15,7 +15,7 @@ try {
     slack.chat.postMessage({
         channel: channels,
         text: `*${message}*\n
-            ${github.context.payload.pulls_url}
+            ${github.context.payload.repository.pulls_url}
         `
     })
 } catch (error) {
