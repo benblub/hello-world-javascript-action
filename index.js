@@ -26,7 +26,7 @@ async function run() {
 
         core.debug('Sending initial slack message')
         const result = await slack.chat.postMessage({
-            text: 'PR: *${message}*',
+            text: `PR: *${message}*`,
             channel: channels
         })
 
@@ -44,7 +44,7 @@ async function run() {
                         filename: screenshot,
                         file: createReadStream(`${workdir}/${screenshot}`),
                         thread_ts: threadID,
-                        channels: channelId
+                        channel_id: channelId
                     })
                 })
             )
@@ -63,7 +63,7 @@ async function run() {
                         filename: video,
                         file: createReadStream(`${workdir}/${video}`),
                         thread_ts: threadID,
-                        channels: channelId
+                        channel_id: channelId
                     })
                 })
             )
