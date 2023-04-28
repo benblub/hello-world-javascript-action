@@ -1,5 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const slackClient = require('@slack/web-api');
 
 try {
     // `who-to-greet` input defined in action metadata file
