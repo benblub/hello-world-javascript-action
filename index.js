@@ -18,7 +18,7 @@ try {
         text: `
 PR: *${message}*\n
 From: ${github.context.payload.pusher.name}\n
-URL: https://github.com/mmz-srf/nora/pull/{number}
+URL: https://github.com/mmz-srf/nora/pull/${number}
         `
     })
 } catch (error) {
