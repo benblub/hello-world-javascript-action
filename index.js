@@ -5,6 +5,8 @@ const slackClient = require('@slack/web-api');
 try {
     const token = core.getInput('token')
     const channels = core.getInput('channels')
+    let number = core.getInput('number')
+    number.slice(9);
     console.log(github.context);
 
     let message = `${github.context.payload.ref}`;
