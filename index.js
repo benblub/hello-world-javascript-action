@@ -11,7 +11,7 @@ const slack = new slackClient.WebClient(token);
 let message = `${github.context.payload.ref}`;
 message = message.slice(11);
 
-const result = await slack.chat.postMessage({
+slack.chat.postMessage({
     text: `PR: *${message}*`,
     channel: channels
 })
