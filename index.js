@@ -4,6 +4,18 @@ const slackClient = require('@slack/web-api');
 const walkSync = require('walk-sync');
 const {createReadStream} = require("fs");
 
+const token = core.getInput('token')
+const channels = core.getInput('channels')
+const slack = new slackClient.WebClient(token);
+
+let message = `${github.context.payload.ref}`;
+message = message.slice(11);
+
+slack.chat.postMessage({
+    text: `PR: *${message}*`,
+    channel: channels
+})
+
 async function run() {
     try {
         const token = core.getInput('token')
